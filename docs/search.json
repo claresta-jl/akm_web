@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "rangkuman.html",
+    "href": "rangkuman.html",
+    "title": "Rangkuman",
+    "section": "",
+    "text": "Gambar rangkuman yang telah dibuat, sebagai referensi cepat materi EC2"
+  },
+  {
+    "objectID": "rangkuman.html#galeri-rangkuman",
+    "href": "rangkuman.html#galeri-rangkuman",
+    "title": "Rangkuman",
+    "section": "📸 Galeri Rangkuman",
+    "text": "📸 Galeri Rangkuman\n\nKonsep Dasar EC2\n\n\n  \n    \n    🖥️ Pengenalan Amazon EC2, gambar didukung oleh Gemini AI"
+  },
+  {
+    "objectID": "rangkuman.html#ringkasan-tabel-cepat",
+    "href": "rangkuman.html#ringkasan-tabel-cepat",
+    "title": "Rangkuman",
+    "section": "📝 Ringkasan Tabel Cepat",
+    "text": "📝 Ringkasan Tabel Cepat\n\n\n\n\n\n\n\nTopik\nPoin Utama\n\n\n\n\nEC2\nServer virtual di AWS, bayar sesuai pakai\n\n\nAMI\nTemplate OS + software untuk buat instance\n\n\nInstance Type\nPilih berdasarkan CPU/RAM/storage yang dibutuhkan\n\n\nOn-Demand\nFleksibel, tanpa komitmen, harga normal\n\n\nReserved\nDiskon besar, komitmen 1–3 tahun\n\n\nSpot\nTermurah, bisa diputus AWS kapan saja\n\n\nEBS\nStorage persisten untuk EC2\n\n\nSecurity Group\nFirewall virtual, atur port yang boleh diakses\n\n\nKey Pair\nKunci SSH untuk login ke instance Linux\n\n\nStop vs Terminate\nStop = matikan sementara; Terminate = hapus permanen"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AWS Academy – Amazon EC2",
+    "section": "",
+    "text": "AWS Academy · KC6\n  \n  \n    Mempelajari konsep dasar layanan Cloud Computing Amazon EC2,\n    mulai dari instance, AMI, hingga keamanan dan penagihan.\n  \n  \n    📘 AWS Academy\n    🎯 Knowledge Check 6\n    🌐 Cloud Computing"
+  },
+  {
+    "objectID": "index.html#apa-yang-akan-kamu-pelajari",
+    "href": "index.html#apa-yang-akan-kamu-pelajari",
+    "title": "AWS Academy – Amazon EC2",
+    "section": "Apa yang akan kamu pelajari?",
+    "text": "Apa yang akan kamu pelajari?\n\n  \n    🖥️\n    Pengenalan EC2\n    Memahami apa itu Amazon EC2 dan bagaimana layanan ini menjadi fondasi komputasi di AWS cloud.\n  \n  \n    ⚙️\n    Jenis Instance\n    Mengenal berbagai tipe instance EC2 dan cara memilih yang tepat sesuai kebutuhan beban kerja.\n  \n  \n    💰\n    Model Harga\n    Memahami opsi harga On-Demand, Reserved, Spot, dan Dedicated untuk mengoptimalkan biaya.\n  \n  \n    🔒\n    Keamanan\n    Belajar tentang Security Group, Key Pair, dan IAM Role untuk menjaga instance tetap aman.\n  \n  \n    🗃️\n    Penyimpanan\n    Memahami opsi storage EBS, Instance Store, dan EFS yang bisa digunakan dengan EC2.\n  \n  \n    🚀\n    Hands-on Lab\n    Pratikum meluncurkan dan mengelola EC2 instance melalui AWS Management Console."
+  },
+  {
+    "objectID": "index.html#navigasi-cepat",
+    "href": "index.html#navigasi-cepat",
+    "title": "AWS Academy – Amazon EC2",
+    "section": "Navigasi Cepat",
+    "text": "Navigasi Cepat\n\n\n\nHalaman\nDeskripsi\n\n\n\n\nMateri\nPenjelasan lengkap konsep EC2 dengan contoh\n\n\nRangkuman\nRangkuman materi EC2 dengan gambar\n\n\n\n\n\n\n\n\n\nTipTips Belajar\n\n\n\nMulai dari halaman Materi untuk memahami konsep, lalu lihat Rangkuman visual yang telah dibuat."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "materi.html",
+    "href": "materi.html",
+    "title": "Materi EC2",
+    "section": "",
+    "text": "Penjelasan lengkap konsep Amazon EC2 untuk AWS Academy KC6"
+  },
+  {
+    "objectID": "materi.html#apa-itu-amazon-ec2",
+    "href": "materi.html#apa-itu-amazon-ec2",
+    "title": "Materi EC2",
+    "section": "Apa itu Amazon EC2?",
+    "text": "Apa itu Amazon EC2?\nAmazon Elastic Compute Cloud (EC2) adalah layanan komputasi yang menyediakan kapasitas komputasi yang bisa diubah ukurannya di cloud AWS. EC2 memungkinkan pengguna untuk menjalankan server virtual (disebut instance) tanpa harus membeli hardware fisik.\n\n\n\n\n\n\nNoteAnalogi Sederhana\n\n\n\nBayangkan EC2 seperti menyewa komputer di warnet. Kamu bisa gunakan sesuai kebutuhan, bayar per jam, dan bisa kapan saja berhenti tanpa khawatir perawatan mesin."
+  },
+  {
+    "objectID": "materi.html#komponen-utama-ec2",
+    "href": "materi.html#komponen-utama-ec2",
+    "title": "Materi EC2",
+    "section": "1. Komponen Utama EC2",
+    "text": "1. Komponen Utama EC2\n\n  \n    💻\n    Instance\n    Server virtual yang berjalan di infrastruktur AWS. Bisa dihidupkan dan dimatikan kapan saja.\n  \n  \n    📀\n    AMI (Amazon Machine Image)\n    Template yang berisi OS dan konfigurasi software untuk membuat instance baru.\n  \n  \n    🔑\n    Key Pair\n    Sepasang kunci (publik & privat) untuk mengakses instance secara aman via SSH.\n  \n  \n    🛡️\n    Security Group\n    Firewall virtual yang mengontrol traffic masuk dan keluar dari instance EC2."
+  },
+  {
+    "objectID": "materi.html#jenis-jenis-instance-ec2",
+    "href": "materi.html#jenis-jenis-instance-ec2",
+    "title": "Materi EC2",
+    "section": "2. Jenis-Jenis Instance EC2",
+    "text": "2. Jenis-Jenis Instance EC2\nSetiap tipe instance dirancang untuk kebutuhan yang berbeda:\n\n\n\nFamili\nContoh\nKegunaan\n\n\n\n\nGeneral Purpose\nt3, m5\nWeb server, dev/test\n\n\nCompute Optimized\nc5, c6g\nBatch processing, HPC\n\n\nMemory Optimized\nr5, x1e\nDatabase besar, cache\n\n\nStorage Optimized\ni3, d3\nData warehouse, NoSQL\n\n\nAccelerated Computing\np3, g4\nMachine learning, GPU"
+  },
+  {
+    "objectID": "materi.html#amazon-machine-image-ami",
+    "href": "materi.html#amazon-machine-image-ami",
+    "title": "Materi EC2",
+    "section": "3. Amazon Machine Image (AMI)",
+    "text": "3. Amazon Machine Image (AMI)\nAMI adalah blueprint yang digunakan untuk membuat EC2 instance. AMI mencakup:\n\nSistem Operasi (Linux, Windows, macOS)\nSoftware yang terinstall\nKonfigurasi awal\n\n\n  Pilih AMI — Bisa dari AWS Marketplace, Community AMI, atau buat sendiri (custom AMI).\n  Pilih Tipe Instance — Sesuaikan CPU, RAM, dan spesifikasi lain.\n  Konfigurasi — Network, IAM Role, User Data, dll.\n  Storage — Tambahkan EBS volume sesuai kebutuhan.\n  Security Group — Atur aturan firewall.\n  Launch — Instance siap digunakan."
+  },
+  {
+    "objectID": "materi.html#model-harga-ec2",
+    "href": "materi.html#model-harga-ec2",
+    "title": "Materi EC2",
+    "section": "4. Model Harga EC2",
+    "text": "4. Model Harga EC2\n\n  \n    🕐\n    On-Demand\n    Bayar per jam/detik tanpa komitmen. Cocok untuk workload tidak terduga atau testing.\n  \n  \n    📅\n    Reserved Instances\n    Komitmen 1–3 tahun. Diskon hingga 75% dibanding On-Demand. Cocok untuk workload stabil.\n  \n  \n    💸\n    Spot Instances\n    Gunakan kapasitas AWS yang tidak terpakai. Harga bisa hemat hingga 90%, namun bisa dihentikan sewaktu-waktu.\n  \n  \n    🏢\n    Dedicated Hosts\n    Server fisik khusus untuk satu pelanggan. Untuk kebutuhan compliance atau lisensi software tertentu."
+  },
+  {
+    "objectID": "materi.html#penyimpanan-ec2",
+    "href": "materi.html#penyimpanan-ec2",
+    "title": "Materi EC2",
+    "section": "5. Penyimpanan EC2",
+    "text": "5. Penyimpanan EC2\n\n\n\n\n\n\n\n\nTipe\nKarakteristik\nUse Case\n\n\n\n\nEBS (Elastic Block Store)\nPersisten, dapat di-detach\nDatabase, OS\n\n\nInstance Store\nSementara (hilang saat stop)\nBuffer, cache, temp\n\n\nEFS (Elastic File System)\nShared, scalable\nMulti-instance sharing\n\n\nS3\nObject storage\nBackup, file statis"
+  },
+  {
+    "objectID": "materi.html#jaringan-keamanan",
+    "href": "materi.html#jaringan-keamanan",
+    "title": "Materi EC2",
+    "section": "6. Jaringan & Keamanan",
+    "text": "6. Jaringan & Keamanan\n\nSecurity Group\nSecurity Group bekerja seperti firewall — hanya mengizinkan traffic yang sesuai aturan:\n\n\n\nJenis\nArah\nContoh\n\n\n\n\nInbound Rule\nMasuk ke instance\nPort 22 (SSH), Port 80 (HTTP)\n\n\nOutbound Rule\nKeluar dari instance\nSemua traffic (default allow)"
+  },
+  {
+    "objectID": "materi.html#lifecycle-instance-ec2",
+    "href": "materi.html#lifecycle-instance-ec2",
+    "title": "Materi EC2",
+    "section": "7. Lifecycle Instance EC2",
+    "text": "7. Lifecycle Instance EC2\nSebuah EC2 instance memiliki beberapa status:\n\n  Pending — Instance sedang dipersiapkan setelah diluncurkan.\n  Running — Instance aktif dan berjalan. Tagihan dihitung.\n  Stopping / Stopped — Instance dihentikan sementara. EBS tetap ada, IP bisa berubah.\n  Terminating / Terminated — Instance dihapus permanen. Data Instance Store hilang.\n\n\n\n\n\n\n\nImportantPerbedaan Stop vs Terminate\n\n\n\n\nStop : Instance dimatikan tapi masih ada, bisa dihidupkan lagi\nTerminate : Instance dihapus permanen, tidak bisa dipulihkan"
+  }
+]

@@ -14,6 +14,10 @@ website:
         text: Materi
       - href: rangkuman.qmd
         text: Rangkuman
+      - href: kalku.qmd
+        text: Kalkulator
+      - href: kuis.qmd
+        text: Kuis
   page-footer:
     background: "#0f172a"
     center: "Claresta Jesslyn Lokanata | AWS Academy EC2 KC6 | Dibuat dengan Quarto"

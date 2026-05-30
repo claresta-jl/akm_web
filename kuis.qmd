@@ -1,0 +1,222 @@
+---
+title: "🎮 Kuis Interaktif EC2"
+---
+
+Uji pemahaman komprehensifmu mengenai materi Amazon EC2 di bawah ini:
+
+```{=html}
+<div class="quiz-container" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; max-width: 680px; margin: 0 auto; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+    <h5 style="margin:0; font-weight:700; color:#FF9900; font-size: 1rem;">AWS Academy KC6 Practice</h5>
+    <span id="quizProgress" style="font-size: 0.85rem; font-weight: 600; color: #64748b;">Soal 1 dari 10</span>
+  </div>
+
+  <div style="background: #f1f5f9; border-radius: 99px; height: 6px; margin-bottom: 24px; overflow: hidden;">
+    <div id="progressBar" style="height: 100%; background: #FF9900; border-radius: 99px; width: 10%; transition: width 0.4s ease;"></div>
+  </div>
+
+  <div id="quizBody">
+    <p id="quizQuestion" style="font-weight: 700; color: #0f172a; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.6;"></p>
+    <div id="quizOptions" style="display: flex; flex-direction: column; gap: 12px;"></div>
+    <div id="quizFeedback" style="display:none; margin-top: 20px; font-weight: 600; font-size: 0.9rem; padding: 14px 16px; border-radius: 8px; line-height: 1.5;"></div>
+    <button id="quizNextBtn" onclick="nextSoal()"
+      style="display:none; margin-top: 20px; background: #0f172a; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; float: right; font-size: 0.9rem;">
+      Soal Berikutnya &rarr;
+    </button>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+
+<script>
+var daftarSoal = [
+  {
+    q: "EC2 itu singkatan dari apa?",
+    a: ["Elastic Compute Cloud", "Elastic Container Cloud", "Extended Cloud Computing", "Enterprise Compute Center"],
+    correct: 0,
+    alasan: "EC2 = Elastic Compute Cloud. 'Elastic' karena kapasitasnya bisa naik-turun sesuai kebutuhan, 'Compute' karena ini layanan server/komputasi, dan 'Cloud' karena berjalan di infrastruktur AWS."
+  },
+  {
+    q: "Port berapa yang dipakai SSH?",
+    a: ["Port 80", "Port 443", "Port 3389", "Port 22"],
+    correct: 3,
+    alasan: "Port 22 adalah port default SSH. Port 80 itu HTTP, 443 itu HTTPS, dan 3389 itu RDP (remote desktop Windows). Kalau mau konek ke Linux via terminal, Security Group harus buka port 22."
+  },
+  {
+    q: "AMI di EC2 fungsinya seperti apa?",
+    a: ["Firewall buat nge-block traffic berbahaya", "Template/cetakan buat bikin instance baru", "Kartu kredit virtual buat bayar tagihan AWS", "Kunci SSH buat login ke server"],
+    correct: 1,
+    alasan: "AMI (Amazon Machine Image) itu kayak 'foto' dari sebuah server — isinya OS, konfigurasi, dan software yang udah kamu siapkan. Dari satu AMI, kamu bisa spawn banyak instance dengan setup yang sama persis."
+  },
+  {
+    q: "Kamu nge-stop sebuah EC2 instance. Apa yang terjadi dengan data di EBS-nya?",
+    a: ["Langsung terhapus permanen", "Tetap aman, data tidak hilang", "Otomatis di-backup ke S3", "Tergantung tipe instance-nya"],
+    correct: 1,
+    alasan: "EBS (Elastic Block Store) itu penyimpanan yang persist — artinya data tetap ada meski instance di-stop. Yang hilang cuma data di Instance Store (storage sementara yang nempel langsung ke hardware). Ini bedanya stop vs terminate: kalau terminate, EBS-nya bisa ikut terhapus tergantung setting Delete on Termination."
+  },
+  {
+    q: "Startup kamu lagi viral, traffic tiba-tiba naik 10x dalam semalam. Model harga EC2 mana yang paling cocok buat situasi ini?",
+    a: ["Reserved Instances", "Dedicated Hosts", "On-Demand Instances", "Spot Instances"],
+    correct: 2,
+    alasan: "On-Demand cocok buat traffic yang unpredictable — kamu bayar per jam, bisa langsung launch tanpa komitmen. Reserved Instances butuh komitmen 1-3 tahun (kurang fleksibel), Spot bisa dihentikan tiba-tiba oleh AWS (bahaya buat production), dan Dedicated Hosts terlalu mahal untuk kebutuhan mendadak."
+  },
+  {
+    q: "Security Group di EC2 itu bekerja di level mana?",
+    a: ["Level VPC (Virtual Private Cloud)", "Level instance / network interface", "Level Availability Zone", "Level region AWS"],
+    correct: 1,
+    alasan: "Security Group itu firewall virtual yang melekat langsung ke instance (tepatnya ke network interface-nya). Dia ngontrol traffic masuk (inbound) dan keluar (outbound) di level instance. Beda dengan Network ACL yang bekerja di level subnet."
+  },
+  {
+    q: "Tim data science kamu butuh instance buat training model ML yang perlu GPU besar. Keluarga instance mana yang dipilih?",
+    a: ["T3 (General Purpose)", "C5 (Compute Optimized)", "R5 (Memory Optimized)", "P3/G4 (Accelerated Computing)"],
+    correct: 3,
+    alasan: "Keluarga P dan G itu Accelerated Computing — dilengkapi GPU (Graphics Processing Unit) yang memang dirancang buat machine learning, deep learning, dan rendering grafis. T3 itu server umum, C5 untuk CPU-intensive, R5 untuk butuh RAM besar."
+  },
+  {
+    q: "Instance kamu di-terminate. Sebelumnya ada 2 storage: EBS volume dengan 'Delete on Termination = Yes', dan 1 EBS lagi dengan 'Delete on Termination = No'. Apa yang terjadi?",
+    a: ["Keduanya terhapus", "Keduanya tetap ada", "Yang Delete=Yes terhapus, yang Delete=No tetap ada", "Yang Delete=No terhapus, yang Delete=Yes tetap ada"],
+    correct: 2,
+    alasan: "Setting Delete on Termination itu per-volume. EBS yang Delete=Yes otomatis dihapus saat instance terminate. EBS yang Delete=No tetap exist sebagai 'unattached volume' dan bisa di-attach ke instance lain. Ini kenapa penting banget cek setting ini sebelum terminate, biar gak kehilangan data."
+  },
+  {
+    q: "Spot Instance kamu tiba-tiba di-interrupt sama AWS. Berapa lama notifikasi yang kamu dapat sebelum instance-nya dimatiin?",
+    a: ["Tidak ada notifikasi sama sekali", "2 menit sebelumnya", "15 menit sebelumnya", "1 jam sebelumnya"],
+    correct: 1,
+    alasan: "AWS kasih warning 2 menit sebelum Spot Instance di-interrupt via EC2 instance metadata dan EventBridge. Waktu 2 menit ini yang harus kamu manfaatin buat checkpoint data atau graceful shutdown. Makanya Spot Instance cuma cocok buat workload yang fault-tolerant."
+  },
+  {
+    q: "Reserved Instances dan Savings Plans sama-sama minta komitmen 1-3 tahun. Apa perbedaan utamanya?",
+    a: ["Reserved lebih murah, Savings Plans lebih mahal", "Reserved terikat ke instance type & region tertentu, Savings Plans lebih fleksibel", "Savings Plans hanya berlaku untuk Lambda, bukan EC2", "Tidak ada perbedaan, keduanya identik"],
+    correct: 1,
+    alasan: "Reserved Instances mengunci kamu ke instance family, size, dan region spesifik (misal: m5.large di us-east-1). Savings Plans cukup commit sejumlah dollar/jam, dan diskonnya otomatis berlaku ke EC2, Fargate, atau Lambda apapun yang kamu pakai. AWS sekarang lebih rekomendasiin Savings Plans karena lebih fleksibel, meski diskon maksimumnya sedikit lebih kecil."
+  }
+];
+
+var indexSekarang = 0;
+var skorSiswa = 0;
+var sudahJawab = false;
+
+function tampilkanSoal() {
+  sudahJawab = false;
+
+  var nextBtn   = document.getElementById("quizNextBtn");
+  var feedback  = document.getElementById("quizFeedback");
+  var progress  = document.getElementById("quizProgress");
+  var progressBar = document.getElementById("progressBar");
+
+  if (!nextBtn) return; //
+
+  nextBtn.style.display   = "none";
+  feedback.style.display  = "none";
+  progress.innerText = "Soal " + (indexSekarang + 1) + " dari " + daftarSoal.length;
+  progressBar.style.width = (((indexSekarang + 1) / daftarSoal.length) * 100) + "%";
+
+  var soal = daftarSoal[indexSekarang];
+  document.getElementById("quizQuestion").innerText = soal.q;
+
+  var pilihanDiv = document.getElementById("quizOptions");
+  pilihanDiv.innerHTML = "";
+
+  soal.a.forEach(function(opsi, idx) {
+    var btn = document.createElement("button");
+    btn.className = "quiz-btn";
+    btn.innerText = opsi;
+    btn.style.cssText = "display:block; width:100%; text-align:left; padding:14px 16px; border-radius:8px; border:1px solid #e2e8f0; background:#f8fafc; cursor:pointer; font-size:0.9rem; color:#1e293b; transition: background 0.15s, border-color 0.15s;";
+    btn.onmouseover = function() { if (!sudahJawab) { this.style.background='#f1f5f9'; this.style.borderColor='#94a3b8'; } };
+    btn.onmouseout  = function() { if (!sudahJawab) { this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; } };
+    btn.onclick = function() { pilihJawaban(idx, btn); };
+    pilihanDiv.appendChild(btn);
+  });
+}
+
+function pilihJawaban(idxDipilih, btnElemen) {
+  if (sudahJawab) return;
+  sudahJawab = true;
+
+  var soal      = daftarSoal[indexSekarang];
+  var feedback  = document.getElementById("quizFeedback");
+  var listTombol = document.getElementById("quizOptions").getElementsByClassName("quiz-btn");
+
+  for (var i = 0; i < listTombol.length; i++) {
+    listTombol[i].style.cursor = "default";
+    listTombol[i].style.pointerEvents = "none";
+  }
+
+  feedback.style.display = "block";
+
+  if (idxDipilih === soal.correct) {
+    skorSiswa++;
+    btnElemen.style.background    = "#dcfce7";
+    btnElemen.style.borderColor   = "#22c55e";
+    btnElemen.style.color         = "#14532d";
+    feedback.style.background     = "#f0fdf4";
+    feedback.style.color          = "#16a34a";
+    feedback.style.border         = "1px solid #bbf7d0";
+    feedback.style.fontWeight     = "700";
+    feedback.innerHTML            = "✅ Benar!";
+  } else {
+    btnElemen.style.background    = "#fee2e2";
+    btnElemen.style.borderColor   = "#ef4444";
+    btnElemen.style.color         = "#7f1d1d";
+    listTombol[soal.correct].style.background   = "#dcfce7";
+    listTombol[soal.correct].style.borderColor  = "#22c55e";
+    listTombol[soal.correct].style.color        = "#14532d";
+    feedback.style.background     = "#fdf2f2";
+    feedback.style.color          = "#dc2626";
+    feedback.style.border         = "1px solid #fde2e2";
+    feedback.style.fontWeight     = "400";
+    feedback.innerHTML            = "❌ <b style='font-weight:700;'>Salah.</b> " + soal.alasan;
+  }
+
+  document.getElementById("quizNextBtn").style.display = "block";
+}
+
+function nextSoal() {
+  indexSekarang++;
+  if (indexSekarang < daftarSoal.length) {
+    tampilkanSoal();
+  } else {
+    tampilkanHasilAkhir();
+  }
+}
+
+function tampilkanHasilAkhir() {
+  var persen   = Math.round((skorSiswa / daftarSoal.length) * 100);
+  var warna    = persen >= 70 ? "#16a34a" : "#dc2626";
+  var emoji    = persen >= 70 ? "🚀" : "📚";
+  var predikat = persen >= 70
+    ? "Keren! Kamu siap menghadapi Real Knowledge Check 6 AWS!"
+    : "Yuk pelajari kembali halaman materi!";
+
+  document.getElementById("progressBar").style.width = "100%";
+  document.getElementById("quizProgress").innerText = "Hasil Akhir";
+  document.getElementById("quizBody").innerHTML =
+    '<div style="text-align:center; padding: 20px 10px;">' +
+      '<div style="font-size:3rem;">' + emoji + '</div>' +
+      '<h3 style="margin-top:12px; color:#0f172a;">Kuis Selesai!</h3>' +
+      '<div style="font-size: 3.5rem; font-weight: 800; color:' + warna + '; margin: 15px 0;">' + persen + '%</div>' +
+      '<p style="font-weight:600; color:#1e293b; margin-bottom:8px;">Skor: ' + skorSiswa + ' benar dari ' + daftarSoal.length + ' soal</p>' +
+      '<p style="font-size:0.9rem; color:#64748b; max-width:400px; margin:0 auto 20px auto;">' + predikat + '</p>' +
+      '<button onclick="resetKuis()" style="margin-top:20px; background:#0f172a; color:white; border:none; padding:12px 28px; border-radius:8px; font-weight:700; cursor:pointer; font-size:0.95rem;">🔄 Coba Ulang Kuis</button>' +
+    '</div>';
+}
+
+function resetKuis() {
+  indexSekarang = 0;
+  skorSiswa     = 0;
+  document.getElementById("quizBody").innerHTML =
+    '<p id="quizQuestion" style="font-weight:700; color:#0f172a; margin-bottom:20px; font-size:1.05rem; line-height:1.6;"></p>' +
+    '<div id="quizOptions" style="display:flex; flex-direction:column; gap:12px;"></div>' +
+    '<div id="quizFeedback" style="display:none; margin-top:20px; font-weight:600; font-size:0.9rem; padding:14px 16px; border-radius:8px; line-height:1.5;"></div>' +
+    '<button id="quizNextBtn" onclick="nextSoal()" style="display:none; margin-top:20px; background:#0f172a; color:white; border:none; padding:10px 24px; border-radius:6px; font-weight:600; cursor:pointer; float:right; font-size:0.9rem;">Soal Berikutnya &rarr;</button>' +
+    '<div style="clear:both;"></div>';
+  tampilkanSoal();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", tampilkanSoal);
+} else {
+  tampilkanSoal();
+}
+</script>
+```

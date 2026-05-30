@@ -64,8 +64,10 @@ toc: false
 |---|---|
 | [Materi](materi.qmd) | Penjelasan lengkap konsep EC2 dengan contoh |
 | [Rangkuman](rangkuman.qmd) | Rangkuman materi EC2 dengan gambar |
+| [Kuis](kuis.qmd) | Kuis yang dapat anda kerjakan untuk mengetes kemampuan anda |
+| [Kalkulator](kalku.qmd) | Kalkulator simulasi penghitungan biaya menggunakan layanan EC2 |
 
 ::: {.callout-tip}
 ## Tips Belajar
-Mulai dari halaman **Materi** untuk memahami konsep, lalu lihat **Rangkuman** visual yang telah dibuat.
+Mulai dari halaman **Materi** untuk memahami konsep, lalu lihat **Rangkuman** visual yang telah dibuat. Setelah itu kerjakan **Kuis**. Anda juga dapat menghitung simulasi biaya penggunaan melalui fitur **Kalkulator**.
 :::

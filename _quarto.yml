@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "AWS Academy – EC2 KC6"
+  navbar:
+    background: "#0f172a"
+    foreground: "#e2e8f0"
+    left:
+      - href: index.qmd
+        text: Beranda
+      - href: materi.qmd
+        text: Materi
+      - href: rangkuman.qmd
+        text: Rangkuman
+  page-footer:
+    background: "#0f172a"
+    center: "Claresta Jesslyn Lokanata | AWS Academy EC2 KC6 | Dibuat dengan Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "Daftar Isi"
+    smooth-scroll: true
+    highlight-style: github
+    code-fold: true
+    code-copy: true

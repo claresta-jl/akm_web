@@ -1,0 +1,71 @@
+---
+title: "AWS Academy – Amazon EC2"
+subtitle: "Knowledge Check 6 (KC6)"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<div class="hero-section">
+  <div class="hero-badge">AWS Academy · KC6</div>
+  <h1 class="hero-title">Amazon <span>EC2</span><br>Elastic Compute Cloud</h1>
+  <p class="hero-subtitle">
+    Mempelajari konsep dasar layanan Cloud Computing Amazon EC2,
+    mulai dari instance, AMI, hingga keamanan dan penagihan.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="icon">📘</span> AWS Academy</div>
+    <div class="hero-meta-item"><span class="icon">🎯</span> Knowledge Check 6</div>
+    <div class="hero-meta-item"><span class="icon">🌐</span> Cloud Computing</div>
+  </div>
+</div>
+```
+
+## Apa yang akan kamu pelajari?
+
+```{=html}
+<div class="card-grid">
+  <div class="info-card">
+    <div class="card-icon">🖥️</div>
+    <h3>Pengenalan EC2</h3>
+    <p>Memahami apa itu Amazon EC2 dan bagaimana layanan ini menjadi fondasi komputasi di AWS cloud.</p>
+  </div>
+  <div class="info-card blue">
+    <div class="card-icon">⚙️</div>
+    <h3>Jenis Instance</h3>
+    <p>Mengenal berbagai tipe instance EC2 dan cara memilih yang tepat sesuai kebutuhan beban kerja.</p>
+  </div>
+  <div class="info-card green">
+    <div class="card-icon">💰</div>
+    <h3>Model Harga</h3>
+    <p>Memahami opsi harga On-Demand, Reserved, Spot, dan Dedicated untuk mengoptimalkan biaya.</p>
+  </div>
+  <div class="info-card purple">
+    <div class="card-icon">🔒</div>
+    <h3>Keamanan</h3>
+    <p>Belajar tentang Security Group, Key Pair, dan IAM Role untuk menjaga instance tetap aman.</p>
+  </div>
+  <div class="info-card red">
+    <div class="card-icon">🗃️</div>
+    <h3>Penyimpanan</h3>
+    <p>Memahami opsi storage EBS, Instance Store, dan EFS yang bisa digunakan dengan EC2.</p>
+  </div>
+  <div class="info-card">
+    <div class="card-icon">🚀</div>
+    <h3>Hands-on Lab</h3>
+    <p>Pratikum meluncurkan dan mengelola EC2 instance melalui AWS Management Console.</p>
+  </div>
+</div>
+```
+
+## Navigasi Cepat
+
+| Halaman | Deskripsi |
+|---|---|
+| [Materi](materi.qmd) | Penjelasan lengkap konsep EC2 dengan contoh |
+| [Rangkuman](rangkuman.qmd) | Rangkuman materi EC2 dengan gambar |
+
+::: {.callout-tip}
+## Tips Belajar
+Mulai dari halaman **Materi** untuk memahami konsep, lalu lihat **Rangkuman** visual yang telah dibuat.
+:::
